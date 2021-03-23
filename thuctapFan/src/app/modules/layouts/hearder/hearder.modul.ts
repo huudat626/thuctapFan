@@ -3,10 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { HearderComponent } from './hearder.component';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
-import { NzMenuModule } from 'ng-zorro-antd/menu';
+
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
-import { AppComponent } from 'src/app/app.component';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+
 
 
 @NgModule({
@@ -18,8 +21,10 @@ import { AppComponent } from 'src/app/app.component';
     CommonModule,
     NzLayoutModule,
     NzBreadCrumbModule,
-    NzMenuModule,
-    NzIconModule
+    NzButtonModule,
+    NzIconModule,
+    NzAvatarModule,
+    NzDropDownModule
   ],
   exports: [
     HearderComponent  //Export để sử dụng được ở Module khác

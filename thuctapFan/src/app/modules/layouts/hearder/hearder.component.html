@@ -1,33 +1,25 @@
-<nz-layout>
-  <nz-sider nzCollapsible nzWidth="200px">
-    <div class="logo"></div>
-    <span>Spotify</span>
-    <ul nz-menu nzTheme="dark" nzMode="inline">
-      <li nz-menu-item>
-        <i nz-icon nzType="home" nzTheme="outline"></i>
-        <span>Trang chủ</span>
-      </li>
-      <li nz-menu-item>
-        <i nz-icon nzType="home" nzTheme="outline"></i>
-        <span>Tìm Kiếm</span>
-      </li>
-      <li nz-menu-item>
-        <i nz-icon nzType="search" nzTheme="outline"></i>
-        <span>Thư viện</span>
-      </li>
-    </ul>
-  </nz-sider>
-  <nz-layout>
-    <nz-header></nz-header>
-    <nz-content>
-      <nz-breadcrumb>
-        <nz-breadcrumb-item>User</nz-breadcrumb-item>
-        <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
-      </nz-breadcrumb>
-      <div class="inner-content">
-        Bill is a cat.
-      </div>
-    </nz-content>
-    <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
-  </nz-layout>
+<nz-layout class="layout">
+  <nz-header>
+    <div class="logo" ></div>
+    <button nz-button nzType="primary"><i nz-icon nzType="left" nzTheme="outline"></i></button>
+    <button nz-button nzType="primary"><i nz-icon nzType="right" nzTheme="outline"></i></button>
+
+      <button class="button" nz-button nzType="primary"  nzShape="round">Nâng cấp</button>
+<div class="account">
+      <a  nz-dropdown [nzDropdownMenu]="menu" >
+        <nz-avatar nzIcon="user"></nz-avatar>
+        UserName
+        <i nz-icon nzType="down"></i>
+      </a>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu nzSelectable>
+          <li nz-menu-item>Tài khoản</li>
+          <li nz-menu-item>Hồ sơ</li>
+          <li nz-menu-item>Đăng xuất</li>
+
+        </ul>
+      </nz-dropdown-menu>
+    </div>
+  </nz-header>
+
 </nz-layout>

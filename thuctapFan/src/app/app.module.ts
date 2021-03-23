@@ -14,6 +14,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 
 import { ModuleHearder } from './modules/layouts/hearder/hearder.modul';
+import { MenuComponent } from './modules/layouts/menu/menu.component';
+import { FooterComponent } from './modules/layouts/footer/footer.component';
+import { ModuleMenu } from './modules/layouts/menu/menu.module';
+import { ModuleFooter } from './modules/layouts/footer/footer.module';
 
 
 registerLocaleData(en);
@@ -22,6 +26,8 @@ registerLocaleData(en);
 @NgModule({
   declarations: [
     AppComponent,
+    // MenuComponent,
+    // FooderComponent,
 
 
 
@@ -34,6 +40,8 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
      NzBreadCrumbModule,
+     ModuleMenu,
+     ModuleFooter
 
 
 
