@@ -1,0 +1,79 @@
+<!-- <aside class="aside">
+  <div class="aside__title">
+
+    Spotify
+  </div>
+  <div>
+    <ul>
+      <li class="side-bar__list-item" routerLinkActive="active">
+        <a class="side-bar__anchor" routerLink="home">Home</a>
+      </li>
+      <li class="side-bar__list-item" routerLinkActive="active">
+        <a class="side-bar__anchor" routerLink="search">Search</a>
+      </li>
+    </ul>
+  </div> -->
+
+  <nz-layout>
+    <nz-sider>
+        <ul nz-menu nzTheme="dark" nzMode="inline">
+            <li nz-menu-item>
+                <i nz-icon nzType="youtube" nzTheme="outline"></i>
+                <span>Spotify</span>
+            </li>
+            <li nz-menu-item routerLink="home">
+                <i nz-icon nzType="home" nzTheme="outline"></i>
+                <span>Trang chủ</span>
+            </li>
+            <li nz-menu-item routerLink='search'>
+                <i nz-icon nzType="search" nzTheme="outline"></i>
+                <span>Tìm kiếm</span>
+            </li>
+            <li nz-menu-item>
+                <i nz-icon nzType="bar-chart" routerLink='thuvien'></i>
+                <span>Thư viện</span>
+            </li>
+            <hr />
+            <li nz-menu-item>
+                <i nz-icon nzType="cloud-o"></i>
+                <span>PLAYLIST</span>
+            </li>
+            <li nz-menu-item>
+                <i nz-icon nzType="file-add" nzTheme="outline"></i>
+                <span>Tạo playlist</span>
+            </li>
+            <li nz-menu-item>
+                <i nz-icon nzType="heart" nzTheme="outline"></i>
+                <span>Bài hát đã thích</span>
+            </li>
+            <hr />
+            <!-- <li nz-menu-item>
+                <i nz-icon nzType="unordered-list" nzTheme="outline"></i>
+                <span>Playlist cau toi #1</span>
+            </li> -->
+            <div class="wrapper">
+                <ul nz-menu nzMode="inline" nzTheme="dark" [nzInlineCollapsed]="">
+                    <li nz-submenu nzTitle="Playlist cau toi #1" nzIcon="profile">
+                        <ul>
+                            <li nz-menu-item>1</li>
+                        </ul>
+
+                    </li>
+
+                </ul>
+            </div>
+            <li nz-menu-item>
+                <i nz-icon nzType="download" nzTheme="outline"></i>
+                <span>Cai dat ung dung</span>
+            </li>
+        </ul>
+    </nz-sider>
+    <nz-layout>
+        <nz-header>Header</nz-header>
+        <nz-content>
+
+            <router-outlet></router-outlet>
+        </nz-content>
+        <nz-footer>Footer</nz-footer>
+    </nz-layout>
+  </nz-layout>

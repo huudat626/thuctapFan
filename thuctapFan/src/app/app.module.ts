@@ -1,52 +1,55 @@
-import { NgModule } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+//Translation
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+// Routes
 import { AppRoutingModule } from './app-routing.module';
+
+// Components and Modules
 import { AppComponent } from './app.component';
 
-import { NZ_I18N } from 'ng-zorro-antd/i18n';
-import { en_US } from 'ng-zorro-antd/i18n';
-import { registerLocaleData } from '@angular/common';
-import en from '@angular/common/locales/en';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
-
-import { ModuleHearder } from './modules/layouts/hearder/hearder.modul';
-import { MenuComponent } from './modules/layouts/menu/menu.component';
-import { FooterComponent } from './modules/layouts/footer/footer.component';
-import { ModuleMenu } from './modules/layouts/menu/menu.module';
-import { ModuleFooter } from './modules/layouts/footer/footer.module';
+// Services
+import { GlobalService } from './services/global.service';
+import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 
 
-registerLocaleData(en);
 
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
     AppComponent,
-    // MenuComponent,
-    // FooderComponent,
-
-
-
+    NavBarComponent
   ],
   imports: [
-    ModuleHearder,
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
-     NzBreadCrumbModule,
-     ModuleMenu,
-     ModuleFooter
-
-
-
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient],
+      }
+    }),
+    NzCardModule,
+    NzMenuModule,
+    NzLayoutModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
-  bootstrap: [AppComponent]
+  providers: [
+    GlobalService,
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
+
 export class AppModule { }

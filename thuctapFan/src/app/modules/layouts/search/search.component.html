@@ -1,0 +1,47 @@
+<section class="search-section">
+  <div id="searchId" class="search-section__nav-bar">
+      <div class="search-section__btn-container">
+
+      </div>
+      <div class="search-section__input-container">
+          <input class="search-section__input" type="text" id="inputSearch" placeholder="Search artist or track" (keyup)="search(searchTerm.value)" (keydown.backspace)="search(searchTerm.value)" #searchTerm>
+      </div>
+  </div>
+  <div class="search-section__search-item-container">
+      <div class="search-section__artists-container"
+          [ngClass]="moreArtists ? 'show' : 'search-section__artists-container--hide'"
+          *ngIf="artistsList.length > 0">
+          <div class="search-section__title-container">
+              <h2 class="search-section__title">artists</h2>
+          </div>
+          <button class="btn-template search-section__btn"
+          (click)="seeMoreArtists()"
+          >see more</button>
+          <div class="search-section__search-item">
+              <app-search-artist-item
+              [artist]="artist" *ngFor="let artist of artistsList"
+              ></app-search-artist-item>
+          </div>
+      </div>
+      <div class="search-section__tracks-container"
+      [ngClass]="moreTracks ? 'show' : 'search-section__tracks-container--hide'"
+      *ngIf="tracksList.length > 0">
+          <div class="search-section__title-container">
+              <h2 class="search-section__title">Songs</h2>
+          </div>
+          <button class="btn-template search-section__btn"
+          (click)="seeMoreTracks()"
+          >see more</button>
+          <div class="search-section__search-item">
+              <app-search-track-item
+              [track]="track" *ngFor="let track of tracksList"
+              ></app-search-track-item>
+          </div>
+      </div>
+      <div class="search-section__float-btn-container" *ngIf="moreArtists || moreTracks">
+
+      </div>
+  </div>
+</section>
+
+
