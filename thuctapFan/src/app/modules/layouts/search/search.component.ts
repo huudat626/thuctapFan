@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { FormControl } from '@angular/forms';
 
-import { APIArtist } from '../artist/models/artist-model';
+
 import { GlobalService } from 'src/app/services/global.service';
 import { SearchService } from './services/search.service';
 import { Router } from '@angular/router';
@@ -21,7 +21,7 @@ export class SearchComponent implements OnInit {
   public tracksList: any[] = [];
   public moreArtists: boolean = false;
   public moreTracks: boolean = false;
-  public activeLanguage: string = 'en';
+
 
   constructor( private searchService: SearchService, private router: Router ) { /*empty*/ }
 
