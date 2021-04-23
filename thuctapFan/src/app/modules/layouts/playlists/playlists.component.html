@@ -1,0 +1,20 @@
+
+<ng-container *ngIf="playList">
+<div class="item" *ngFor="let data of playList.items" >
+  <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
+
+      <nz-card-meta [nzTitle]="data.name" ></nz-card-meta>
+  </nz-card>
+    <ng-template #coverTemplate>
+      <a [routerLink]="['/playlists/',data.id]">
+
+        <img alt="example" [src]= data.images[0].url>
+      </a>
+
+    </ng-template>
+  </div>
+  </ng-container>
+
+
+
+

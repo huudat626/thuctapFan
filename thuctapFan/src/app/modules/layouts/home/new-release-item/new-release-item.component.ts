@@ -1,8 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { NewReleasesItem } from '../../models/new-releases-model';
+
 
 // Models
-import { NewReleasesItem } from '../models/new-releases-model';
+
 
 @Component({
   selector: 'app-new-release-item',

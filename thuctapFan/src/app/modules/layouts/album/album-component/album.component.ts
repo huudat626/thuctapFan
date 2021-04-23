@@ -6,7 +6,7 @@ import { Location } from '@angular/common';
 import { AlbumService } from '../services/album.service';
 
 // Models
-import { APIAlbums } from '../models/album-model';
+import { APIAlbums } from '../../models/album-model';
 
 @Component({
   selector: 'app-album',

@@ -13,12 +13,14 @@ import { NewReleaseItemComponent } from './new-release-item/new-release-item.com
 // Services
 import { NewReleasesService } from './services/new-releases.service';
 import { PipesModule } from 'src/app/pipes/pipes.module';
+import { UseTopComponent } from './use-top/use-top.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     NewReleaseItemComponent,
+    UseTopComponent,
   ],
   imports: [
     CommonModule,

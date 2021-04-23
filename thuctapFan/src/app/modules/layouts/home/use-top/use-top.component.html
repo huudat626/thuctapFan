@@ -1,0 +1,16 @@
+
+<ng-container >
+  <div>
+    <nz-card  nzHoverable style="width:240px" [nzCover]="coverTemplate " *ngIf="useTop" >
+      <nz-card-meta nzTitle="{{ useTop.name | uppercase}}" nzDescription="{{ useTop.type | uppercase}}"></nz-card-meta>
+      <nz-card-meta *ngFor="let track of useTop.album">
+    </nz-card-meta>
+    </nz-card>
+    <ng-template #coverTemplate>
+      <img  [src]="useTop.items[0].track.album.images | errorImage" />
+    </ng-template>
+  </div>
+
+</ng-container>
+
+

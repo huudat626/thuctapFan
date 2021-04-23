@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
 import { GlobalService } from 'src/app/services/global.service';
 
 // Models
-import { APIArtist } from '../models/artist-model';
-import { APIArtistTracks } from '../models/artist-top-track-model';
-import { APIArtistAlbums, AlbumItem } from '../models/artist-albums';
+import { APIArtist } from '../../models/artist-model';
+import { APIArtistTracks } from '../../models/artist-top-track-model';
+import { APIArtistAlbums, AlbumItem } from '../../models/artist-albums';
 
 @Injectable() // service provided in Artist module
 export class ArtistService {

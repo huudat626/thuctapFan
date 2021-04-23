@@ -1,0 +1,32 @@
+
+
+<nz-table >
+  <thead>
+    <tr>
+      <th></th>
+      <th>#</th>
+      <th>Tiêu đề</th>
+      <th>ALBUM</th>
+      <th>NGÀY THÊM</th>
+      <th> <i style="width: 80px;height:55px;" nz-icon nzType="clock-circle" nzTheme="outline"></i> </th>
+    </tr>
+  </thead>
+  <tbody *ngIf="playList">
+    <tr  *ngFor="let item of playList.items; index as i">
+      <td>{{i+1}}</td>
+
+      <!-- <td><i nz-icon nzType="play-circle" nzTheme="outline"> </i></td> -->
+      <td><img [src]= "item.track.album.images[0].url"></td>
+      <td>
+         {{ item.track.name }}
+        {{item.track.artists.name}}
+      <button (click)="senUriTrack(item.track.uri)"> play </button></td>
+      <td>{{ item.track.album.name }}</td>
+      <td>{{ item.track.album.release_date| date:"mediumDate" }}</td>
+      <td>{{item.track.duration_ms |timeCustomPipe}}</td>
+      <!-- <td><iframe [src]="item.track.external_urls.spotify | uri" width="600" height="600" frameborsrcder="0" allowtransparency="true" allow="encrypted-media"></iframe></td> -->
+
+<td></td>
+    </tr>
+  </tbody>
+</nz-table>

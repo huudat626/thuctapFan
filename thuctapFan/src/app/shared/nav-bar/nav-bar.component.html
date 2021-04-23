@@ -29,8 +29,8 @@
                 <i nz-icon nzType="search" nzTheme="outline"></i>
                 <span>Tìm kiếm</span>
             </li>
-            <li nz-menu-item>
-                <i nz-icon nzType="bar-chart" routerLink='thuvien'></i>
+            <li nz-menu-item routerLink='playlists'>
+                <i nz-icon nzType="bar-chart" ></i>
                 <span>Thư viện</span>
             </li>
             <hr />
@@ -74,6 +74,18 @@
 
             <router-outlet></router-outlet>
         </nz-content>
-        <nz-footer>Footer</nz-footer>
+        <nz-footer>
+          <div *ngIf="ifamsrc">
+            <iframe [src]="ifamsrc|uri"
+            width="600"
+            height="600"
+             frameborsrcder="0"
+              allowtransparency="true"
+               allow="encrypted-media"></iframe>
+          </div>
+
+
+
+        </nz-footer>
     </nz-layout>
   </nz-layout>

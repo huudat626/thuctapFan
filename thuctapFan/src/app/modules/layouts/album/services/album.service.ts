@@ -3,10 +3,11 @@ import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 // Models
-import { APIAlbums } from '../models/album-model';
+
 
 // Services
 import { GlobalService } from 'src/app/services/global.service';
+import { APIAlbums } from '../../models/album-model';
 
 @Injectable() // service provided in Artist module
 export class AlbumService {

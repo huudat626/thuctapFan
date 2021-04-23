@@ -3,11 +3,12 @@ import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 // Models
-import { FormattedNewReleases, APINewReleases } from '../models/new-releases-model';
+
 
 // Services
 import { GlobalService } from 'src/app/services/global.service';
-import { AlbumComponent } from '../../album/album-component/album.component';
+import { FormattedNewReleases } from '../../models/new-releases-model';
+
 
 @Injectable() // service provided in module
 export class NewReleasesService {
@@ -31,6 +32,21 @@ export class NewReleasesService {
              };
             });
           return formattedItems;
+        }
+      }),
+      catchError((err) => {
+        throw new Error(err.message);
+      }));
+  }
+  public getUserTop(): Observable<any> {
+    const usetopUrl: string = `me/player/recently-played`;
+
+    return this.globalService.getQuery(usetopUrl).pipe(
+      map((res: any) => {
+        if (!res) {
+          throw new Error('Value expected!');
+        } else {
+          return res;
         }
       }),
       catchError((err) => {

@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+
 
 // Models
-import { NewReleasesItem } from '../models/new-releases-model';
+
 
 // Services
 import { NewReleasesService } from '../services/new-releases.service';
 import { GlobalService } from 'src/app/services/global.service';
+import { NewReleasesItem } from '../../models/new-releases-model';
+
+
 
 @Component({
   selector: 'app-home',
@@ -15,17 +18,18 @@ import { GlobalService } from 'src/app/services/global.service';
 })
 export class HomeComponent implements OnInit {
   public newReleases: NewReleasesItem[] = [];
-  // public activeLanguage: string = 'en';
+  public useTop: any[]=[];
 
   constructor(
     private newReleasesService: NewReleasesService,
     private globalService: GlobalService,
-    private translate: TranslateService
+
     ){ /*empty*/ }
 
   ngOnInit(): void {
 
     this.getNewReleases();
+    this.getUserTop();
   }
 
   // call service to get new releases from spotify
@@ -40,15 +44,17 @@ export class HomeComponent implements OnInit {
       console.log('Complete!');
     });
   }
-
-  // scroll to element
-  public scrollTo(elementId: string): void {
-    document.getElementById(elementId)?.scrollIntoView();
+  public getUserTop(): void {
+    this.newReleasesService.getUserTop().subscribe((data: any) => {
+      this.useTop = data;
+      console.log('Data top:', data);
+    }, (err) => {
+      console.log('Error:', err);
+      console.error(err.message);
+    }, () => {
+      console.log('Complete!');
+    });
   }
 
-  // set language
-  // public setLanguage(): void {
-  //   this.activeLanguage = this.globalService.getGlobalLanguage();
-  //   this.translate.use(this.activeLanguage);
-  // }
+
 }
