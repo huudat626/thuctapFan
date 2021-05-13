@@ -1,17 +1,53 @@
-
-  <h2 class="new-releases__title">HOME</h2>
-  <!-- <section class="new-releases__new-releases-section" *ngIf="newReleases.length > 0">
+<div class="home">
+<div class="new-releases-container"
+      [ngClass]="moreTracks ? 'show' : 'new-releases-container--hide'">
+          <h2 class="new-releases title">NEW RELESSES</h2>
+          <div class="new-releases__see-more-container">
+              <button class="btn-template"
+              (click)="seeMoreTracks()"
+              >SEE MORE</button>
+          </div>
+  <section class="new-releases__new-releases-section" *ngIf="newReleases.length > 0">
       <app-new-release-item
       [newRelease]="newRelease"
       *ngFor="let newRelease of newReleases"
       ></app-new-release-item>
-  </section> -->
 
+  </section>
+</div>
+  <hr>
+  <div class="use-top-container"
+  [ngClass]="moreAlbums ? 'show' : 'use-top-container--hide'">
+      <h2 class="use-top title">NGHE GẦN ĐÂY</h2>
+      <div class="use-top__see-more-container">
+          <button class="btn-template"
+          (click)="seeMoreAlbums()"
+          >SEE MORE</button>
+      </div>
+<section>
+
+  <div *ngIf="useTop">
+    <app-use-top
+    *ngFor="let useTop of useTop" [useTop]="useTop"></app-use-top>
+  </div>
+</section>
+</div>
   <!-- <section *ngIf="useTop.length > 0">
 
-    <app-use-top  [useTop]="useTop"
-    *ngFor="let item of useTop">tức á</app-use-top>
+
 
   </section> -->
-  <app-use-top></app-use-top>
+  <!-- <div *ngIf="useTop">
+    <div *ngFor="let i of useTop.items">
+
+    {{ i.track.name | uppercase}}"
+    </div>
+  </div> -->
+  <!-- <app-use-top></app-use-top> -->
+
+
+<!-- <app-nav-bar></app-nav-bar>
+
+
+<router-outlet></router-outlet> -->
 

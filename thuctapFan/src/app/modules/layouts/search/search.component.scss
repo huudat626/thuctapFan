@@ -1,27 +1,27 @@
-// SCSS Variables
-$layout_bp_mobile: 360px;
-$layout_bp_tablet: 800px;
-$layout_bp_desktop: 1000px;
+// // SCSS Variables
+// $layout_bp_mobile: 360px;
+// $layout_bp_tablet: 800px;
+// $layout_bp_desktop: 1000px;
 
 
-$dark-gray: #fcd7d7;
+// $dark-gray: #fcd7d7;
 
-$light-gray: #b3b3b3;
-$black: rgb(245, 231, 231);
+// $light-gray: #b3b3b3;
+// $black: rgb(245, 231, 231);
 // SCSS Mixins
-@mixin tablet {
-  @media only screen and (min-width: $layout_bp_tablet) {
-    @content;
-  }
-}
+// @mixin tablet {
+//   @media only screen and (min-width: $layout_bp_tablet) {
+//     @content;
+//   }
+// }
 
-@mixin desktop {
-  @media only screen and (min-width: $layout_bp_desktop) {
-    @content;
-  }
-}
+// @mixin desktop {
+//   @media only screen and (min-width: $layout_bp_desktop) {
+//     @content;
+//   }
+// }
 
-// SCSS Styles
+SCSS Styles
 .show {
   overflow: visible;
   height: auto;
@@ -45,9 +45,9 @@ $black: rgb(245, 231, 231);
   &__input-container {
     margin-left: 15px;
 
-    @include desktop {
-      width: 320px;
-    }
+    // @include desktop {
+    //   width: 320px;
+    // }
   }
 
   &__input {
@@ -70,34 +70,34 @@ $black: rgb(245, 231, 231);
   }
 
   &__search-item-container {
-    background-color: $dark-gray;
+    background-color: pink;
 
-    @include desktop {
-      max-width: 98%;
-      margin: 0 auto;
-    }
+    // @include desktop {
+    //   max-width: 98%;
+    //   margin: 0 auto;
+    // }
   }
 
   &__search-item {
-    @include desktop {
-      max-width: 98%;
-      margin: 0 auto;
+    // @include desktop {
+    //   max-width: 98%;
+    //   margin: 0 auto;
 
-      padding-bottom: 60px;
+    //   padding-bottom: 60px;
 
-      display: flex;
-      flex-wrap: wrap;
-    }
+    //   display: flex;
+    //   flex-wrap: wrap;
+    // }
   }
 
   &__tracks-container--hide {
     overflow: hidden;
-    height: 370px;
+    height: 480px;
   }
 
   &__artists-container--hide {
     overflow: hidden;
-    height: 370px;
+    height: 480px;
   }
 
   &__btn {
@@ -105,3 +105,4 @@ $black: rgb(245, 231, 231);
     margin-bottom: 15px;
   }
 }
+

@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { NewReleasesService } from '../services/new-releases.service';
+import { Router } from '@angular/router';
+import { PlaySpotifyService } from 'src/app/services/play-spotify';
 
 @Component({
   selector: 'app-use-top',
@@ -8,32 +11,36 @@ import { NewReleasesService } from '../services/new-releases.service';
 })
 export class UseTopComponent implements OnInit {
 
-  @Input()
-  useTop!: any;
+  @Input() useTop !: any;
+
   constructor(
     private useTopService: NewReleasesService,
+    private router: Router,
+    private playSpotify: PlaySpotifyService,
   ) { }
 
   ngOnInit(): void {
+    // console.log("log:",this.useTop.limit);
+    console.log("sdata", this.useTop);
+    this.navigate;
+
+
   }
-  // public getUserTop(): void {
-  //   this.useTopService.getUserTop().subscribe((data: any) => {
-  //     this.useTop = data;
+  // public navigate(item: any): void {
+  //   console.log('id', item.track.id);
+  //    this.router.navigate(['/album', track.album.id]);
 
-  //     console.log('Data:', data);
-  //   }, (err) => {
-  //     console.log('Error:', err);
-  //     console.error(err.message);
-  //   }, () => {
-  //     console.log('Complete!');
-  //   });
-  // }
-  public navigate(useTop: any): void {
+  public navigate(item: any): void {
     let useTopId: number = 0;
-
-    useTop.type === 'track' ?  useTopId = useTop.id : useTopId = useTop.id;
-    console.log('new release type:', useTop.type);
+    console.log('id', item.track.album.id);
+    item.track.type === 'artist' ? useTopId = item.track.album.id : useTopId = item.track.album.id;
+    console.log('new release type:', item.type);
     console.log('New Release Id:', useTopId);
 
+    this.router.navigate(['/album', useTopId]);
+  }
 }
-}
+// senUriTrack(idplaytrack: string){
+//   this.playSpotify.notifyPlayTrackId(idplaytrack)
+// }
+//}

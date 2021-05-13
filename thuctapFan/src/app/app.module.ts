@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzInputModule } from 'ng-zorro-antd/input';
 //Translation
 
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -25,7 +28,14 @@ import { SpotifyAuthModule } from './spotify-auth/service/auth-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UriPipe } from './pipes/uri.pipe';
 import { PipesModule } from './pipes/pipes.module';
+import { SearchService } from './modules/layouts/search/services/search.service';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+//import { environment } from '../environments/environment';
+import { FormsModule } from '@angular/forms';
 
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 
 
@@ -35,25 +45,32 @@ import { PipesModule } from './pipes/pipes.module';
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent,
+     NavBarComponent,
+
 
 
 
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     SpotifyAuthModule,
     PipesModule,
-
+    NzIconModule,
     NzCardModule,
     NzMenuModule,
     NzLayoutModule,
+    NzDropDownModule,
     BrowserAnimationsModule,
-
+    NzInputModule,
+    environment.production ? [] : AkitaNgDevtools.forRoot(),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [
+    SearchService,
     GlobalService,
     AuthService,
     TokenService,

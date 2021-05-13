@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CreatPlaylistComponent } from './modules/layouts/playlists/creat-playlist/creat-playlist.component';
 import { ListsongComponent } from './modules/layouts/playlists/listsong/listsong.component';
+import { PlaylistprofileComponent } from './modules/layouts/playlists/playlistprofile/playlistprofile.component';
 
 const routes: Routes = [
   { // default route => /home
@@ -8,6 +10,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'authorized',
+  loadChildren: ()=> import('./spotify-auth/service/auth-module').then(m=>m.SpotifyAuthModule)
+ },
   { // route => /home/language
     path: 'home',
     loadChildren: () => import('./modules/layouts/home/home.module').then(m => m.HomeModule)
@@ -34,14 +40,11 @@ const routes: Routes = [
   path: 'album/:id',
   loadChildren: () => import('./modules/layouts/album/album.module').then(m => m.AlbumModule)
 },
-{
-path: 'login',
-  loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
-},
- {
-   path: 'authorized',
- loadChildren: ()=> import('./spotify-auth/service/auth-module').then(m=>m.SpotifyAuthModule)
-},
+// {
+// path: 'login',
+//   loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+// },
+
 {
   path:"playlists",
   loadChildren: ()=> import('./modules/layouts/playlists/playlists.module').then(m=>m.PlaylistsModule)
@@ -50,9 +53,18 @@ path: 'login',
 //   path:"playlists/:id",
 //   loadChildren:()=> import("./modules/layouts/playlists/playlists.module").then(m=>m.PlaylistsModule)
 // },
+
 {
   path:"playlists/:id",
-  component: ListsongComponent
+  component: PlaylistprofileComponent
+},
+{
+  path:"playlists/:id",
+  component: CreatPlaylistComponent
+},
+{
+  path:"creat_playlist",
+  component: CreatPlaylistComponent
 }
 ];
 

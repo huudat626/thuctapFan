@@ -5,6 +5,7 @@ import { ScopesBuilder } from './scopes-builder';
 import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs';
 import { AuthConfig } from './auth-config.i';
+import { GlobalService } from 'src/app/services/global.service';
 
 @Injectable()
 export class AuthService {
@@ -15,7 +16,7 @@ export class AuthService {
   private authConfig: AuthConfig = {
     client_id: "c5e567838382421c8f04af965f70ab24",  // WebPortal App Id. Shoud be config
     response_type: "token",
-    redirect_uri: "http://localhost:4200/authorized/",  // My URL
+    redirect_uri: "",  // My URL
     state: "",
     show_dialog: true,
     scope: new ScopesBuilder().build()
@@ -25,12 +26,17 @@ export class AuthService {
     window.location.href = this.buildAuthUrl();
   }
 
+
   //Signal someone, that router can navigate somewhere
   public authorized(): void{
     console.log('Called auth');
     this.authorized$.next(true);
   }
+  public unAuthorzed(): void{
+    this.authorized$.next(false);
+    console.log('unAuth');
 
+  }
   public get authorizedStream(): Observable<boolean>{
     return this.authorized$.asObservable();
   }
@@ -54,4 +60,5 @@ export class AuthService {
 
     return `${this.requestAuthUrl}?${params.join('&')}`;
   }
+
 }

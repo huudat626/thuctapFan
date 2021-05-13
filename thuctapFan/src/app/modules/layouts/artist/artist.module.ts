@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 // Translation
 import { HttpClientModule } from '@angular/common/http';
@@ -26,6 +28,8 @@ import { ArtistService } from './services/artist.service';
     ArtistRoutingModule,
     PipesModule,
     HttpClientModule,
+    NzTableModule,
+    NzIconModule
 
   ],
   providers: [

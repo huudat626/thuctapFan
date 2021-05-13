@@ -14,5 +14,9 @@ export class GlobalService {
 
     // execute request
     return this.http.get(url);
+
   }
+  // public postQuery(query: string){
+
+  // }
 }

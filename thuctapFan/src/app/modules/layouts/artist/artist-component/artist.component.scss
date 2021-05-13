@@ -1,4 +1,8 @@
 // SCSS Variables
+// nz-icon{
+//   height: 34px;
+//   width: 34px;
+// }
 $layout_bp_mobile: 360px;
 $layout_bp_tablet: 1000px;
 $layout_bp_desktop: 1000px;
@@ -45,15 +49,15 @@ $black: rgb(245, 231, 231);
   &__header-img-container {
     margin-top: 20px;
   }
-  &__main-container {
-    margin-top: 40px;
-    padding-top: 20px;
-    // position: absolute;
-    width: 900px;
-    background-color: $dark-gray;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
+  // &__main-container {
+  //   margin-top: 40px;
+  //   padding-top: 20px;
+  //   // position: absolute;
+  //   width: 900px;
+  //   background-color: $dark-gray;
+  //   padding-left: 10px;
+  //   padding-right: 10px;
+  // }
 
   &__name {
     padding-top: 10px;
@@ -95,4 +99,6 @@ $black: rgb(245, 231, 231);
     display: flex;
     flex-wrap: wrap;
   }
+
 }
+

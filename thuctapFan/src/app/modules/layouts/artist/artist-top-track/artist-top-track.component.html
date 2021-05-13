@@ -1,16 +1,43 @@
-<li class="top-track-item" *ngIf="topTrack">
+<li class="top-track-item" *ngIf="topTrack" (click)="senUriTrack(topTrack.uri)">
     <div class="top-track-item__left">
         <div class="top-track-item__img-container">
             <img class="top-track-item__img" [src]="topTrack.album.images | errorImage" alt="{{ topTrack.name }}">
         </div>
         <div class="top-track-item__name-container">
-            <p class="top-track-item__name">{{ topTrack.name }}</p>
+            <p class="top-track-item__name" >{{ topTrack.name }}</p>
         </div>
-        <div class="top-track-item__player" *ngIf="play">
-            <!-- <iframe class="top-track-item__audio" [src]="topTrack.uri | url" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> -->
-        </div>
-    </div>
-    <div class="top-track-item__player-btn-container">
+        <!-- <div class="top-track-item__player" *ngIf="play">
+
+    </div> -->
+    <!-- <div class="top-track-item__player-btn-container">
         <a class="top-track-item__player-anchor" (click)="player()">Preview</a>
+    </div> -->
     </div>
 </li>
+
+<!-- <nz-table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>#</th>
+      <th>Tiêu đề</th>
+      <th> <i style="width: 80px;height:55px;" nz-icon nzType="clock-circle" nzTheme="outline"></i> </th>
+    </tr>
+  </thead>
+  <tbody *ngIf="topTrack">
+    <tr >
+
+      <td><i nz-icon nzType="play-circle" nzTheme="outline"> </i></td>
+
+      <div>
+        <td><img class="top-track-item__img" [src]="topTrack.album.images | errorImage"></td>
+        <p class="top-track-item__name">{{ topTrack.name }}</p>
+        <td (click)="player()">{{ topTrack.name }}</td>
+
+        <td>{{topTrack.duration_ms |timeCustomPipe}}</td>
+
+      </div>
+
+    </tr>
+  </tbody>
+</nz-table> -->

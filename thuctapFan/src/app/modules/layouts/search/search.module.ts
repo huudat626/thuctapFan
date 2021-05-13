@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { NzCardModule } from 'ng-zorro-antd/card';
 
 // Components
 // import { SearchComponent } from './search-component/search.component';
@@ -32,6 +33,7 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     PipesModule,
     HttpClientModule,
     NzAutocompleteModule,
+    NzCardModule
 
   ],
   providers: [

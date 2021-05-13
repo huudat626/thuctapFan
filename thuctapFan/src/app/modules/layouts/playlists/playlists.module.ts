@@ -8,6 +8,11 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
 import { ListsongComponent } from './listsong/listsong.component';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { CreatPlaylistComponent } from './creat-playlist/creat-playlist.component';
+import { SearchService } from '../search/services/search.service';
+import { PlaylistprofileComponent } from './playlistprofile/playlistprofile.component';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+
 
 
 
@@ -15,6 +20,9 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
   declarations: [
     PlaylistsComponent,
     ListsongComponent,
+    CreatPlaylistComponent,
+    PlaylistprofileComponent,
+
   ],
   imports: [
     CommonModule,
@@ -23,7 +31,15 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     HttpClientModule,
     PipesModule,
     NzTableModule,
-    NzIconModule
+    NzIconModule,
+    NzButtonModule
+
+  ],
+  providers: [
+    SearchService,
+  ],
+  exports:[    ListsongComponent,CreatPlaylistComponent
   ]
+
 })
 export class PlaylistsModule { }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CreatPlaylistComponent } from './creat-playlist/creat-playlist.component';
 import { ListsongComponent } from './listsong/listsong.component';
 
 
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path:'',
     component:ListsongComponent
+  },
+  {
+    path:'',
+    component:CreatPlaylistComponent
   }
 ];
 

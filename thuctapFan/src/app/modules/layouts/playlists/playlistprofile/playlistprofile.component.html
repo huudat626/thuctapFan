@@ -1,0 +1,53 @@
+<div class="album-tracks" *ngIf="playListitem">
+  <!-- <button class="back-btn" role="button" type="button" (click)="goBack()">
+    Back
+  </button> -->
+  <img class="album-tracks__img"  [src]= "playListitem.images[0].url ">
+
+  <div class="fontname">
+      <h1 class="album-tracks__name">{{playListitem.name }}</h1>
+        <h2>{{playListitem.owner.display_name}}</h2>
+<div >
+      <h3>{{playListitem.tracks.items.length}} Songs
+        <i style="font-size: 20px;" nz-icon nzType="clock-circle" nzTheme="outline"></i>
+        {{playListitem.tracks.items[0].track.duration_ms
+        |timeCustomPipe}} </h3>
+      </div>
+
+    </div>
+    <app-listsong [playListitem]="playListitem"></app-listsong>
+    <nz-table *ngIf="(result! |async) as result" #middleTable [nzData]="result.items">
+      <header>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+      </header>
+    <tbody  >
+    <!-- <div *ngIf="(result$ |async) as result"> -->
+    <tr *ngFor='let track of result.items'>
+    <td>  <img [src]= 'track.album.images[0].url'></td>
+
+    <td>
+    {{track.name}}
+    </td>
+
+
+    <td> <button nz-button nzType="primary"  nzShape="round"(click)="addplaylist(track.uri, track.id)">Thêm</button> </td>
+    </tr>
+    </tbody>
+    </nz-table>
+</div>
+
+
+<!--  -->
+
+<!-- <div *ngIf="(result! |async) as result">
+  <div *ngFor='let track of result.items'>
+    <img [src]= 'track.album.images[0].url'>
+
+    {{track.name}}
+
+    <button (click)="addplaylist(track.uri, track.id)">Them</button>
+</div>
+</div> -->
+

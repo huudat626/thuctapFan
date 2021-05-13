@@ -52,13 +52,14 @@ export interface Tracks {
     href: string;
     items: Item[];
     limit: number;
-    next: null;
+    next: string;
     offset: number;
-    previous: null;
+    previous: string;
     total: number;
 }
 
 export interface Item {
+    album: APIAlbums;
     artists: Artist[];
     available_markets: string[];
     disc_number: number;

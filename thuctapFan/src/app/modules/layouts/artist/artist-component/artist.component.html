@@ -1,9 +1,10 @@
 <section id="artistId" class="artist-section animated fadeIn" *ngIf="artist != null">
   <div class="artist-section__header-container">
       <div class="artist-section__btn-container">
-          <button class="back-btn" role="button" type="button" [routerLink]="['/search']">
+        <!-- <i nz-icon nzType="left-circle"  style="font-size: 30px;" nzTheme="outline" [routerLink]="['/search']" ></i> -->
+          <!-- <button class="back-btn" role="button" type="button" [routerLink]="['/search']">
              Back
-          </button>
+          </button> -->
       </div>
       <div class="artist-section__header-img-container">
           <img class="artist-section__header-img" [src]="artist.images | errorImage" [alt]="artist.name">
@@ -20,11 +21,11 @@
       </div>
   </div>
   <div class="artist-section__main-container">
-      <div class="artist-section__btn-container">
-          <!-- <button class="artist-section__general-btn artist-section__btn" routerLinkActive="activate-link"
-              [routerLink]="['/artist', artistId]">Overview</button> -->
+      <!-- <div class="artist-section__btn-container">
+          <button class="artist-section__general-btn artist-section__btn" routerLinkActive="activate-link"
+              [routerLink]="['/artist', artistId]">Overview</button>
           <h3 class="artist-section__btn-title">OVERVIEW</h3>
-      </div>
+      </div> -->
       <div class="artist-section__top-tracks-container"
       [ngClass]="moreTracks ? 'show' : 'artist-section__top-tracks-container--hide'">
           <h2 class="artist-section__top-tracks-title">TOP TRACKS</h2>
@@ -50,10 +51,10 @@
               <app-artist-albums [album]="album" *ngFor="let album of albums"></app-artist-albums>
           </div>
       </div>
-      <div class="artist-section__float-btn-container" *ngIf="moreAlbums || moreTracks">
+      <!-- <div class="artist-section__float-btn-container" *ngIf="moreAlbums || moreTracks">
           <a class="float-btn" (click)="scrollTo('artistId')">
             <span class="fas fa-chevron-up float-btn-icon"></span>
           </a>
-      </div>
+      </div> -->
   </div>
 </section>

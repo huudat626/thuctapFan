@@ -6,11 +6,14 @@
       <nz-card-meta [nzTitle]="data.name" ></nz-card-meta>
   </nz-card>
     <ng-template #coverTemplate>
-      <a [routerLink]="['/playlists/',data.id]">
-
-        <img alt="example" [src]= data.images[0].url>
-      </a>
-
+       <ng-container *ngIf="data.images.length >0; else elseTemplate">
+        <a [routerLink]="['/playlists/',data.id]">
+          <img  [src]= "data.images[0].url">
+        </a>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <img src="../../../../assets/no-image.png" style="min-height: 240px;">
+      </ng-template>
     </ng-template>
   </div>
   </ng-container>

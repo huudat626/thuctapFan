@@ -17,7 +17,9 @@ export class NewReleaseItemComponent implements OnInit {
 
   constructor(private router: Router) { /*empty*/ }
 
-  ngOnInit(): void { /*empty*/ }
+  ngOnInit(): void {
+    console.log('1s',this.newRelease);
+     /*empty*/ }
 
   public navigate(newRelease: any): void {
     let newReleaseId: number = 0;
@@ -26,7 +28,7 @@ export class NewReleaseItemComponent implements OnInit {
     console.log('new release type:', newRelease.type);
     console.log('New Release Id:', newReleaseId);
 
-    this.router.navigate(['/artist', newReleaseId]);
+    // this.router.navigate(['/artist', newReleaseId]);
     this.router.navigate(['/album', newReleaseId]);
   }
 }

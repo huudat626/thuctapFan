@@ -4,6 +4,7 @@ import { Item } from '../models/album-model';
 import { APIPlaylist } from '../models/playlist';
 import { PlaylistsService } from './service/playlists.service';
 import { Router } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-playlists',
@@ -22,8 +23,17 @@ export class PlaylistsComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    // this.activatedRoute.params
+    // .pipe(
+    //   switchMap((p: any)=>{
+    //     let usr =p['id'];
+    //     return this.playlistsService.getPlaylistSong(usr);
+    //   }
+    // )).subscribe((data:any)=>{
+    //   this.playList=data
+    // });
 
-    this.getPlaylist();
+     this.getPlaylist();
    //this.getActivatedRoute();
   }
 

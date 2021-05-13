@@ -1,4 +1,4 @@
-<div class="search-track-item animated fadeIn" *ngIf="track" (click)="navigate(track)">
+<!-- <div class="search-track-item animated fadeIn" *ngIf="track" (click)="navigate(track)">
     <div class="search-track-item__img-container">
         <img class="search-track-item__img" [src]="track.album.images | errorImage" [alt]="track.name">
     </div>
@@ -10,4 +10,19 @@
             <span class="search-track-item__track">{{ track.name }}</span>
         </div>
     </div>
-</div>
+</div> -->
+
+<ng-container class="content">
+  <div class="item">
+    <nz-card  nzHoverable style="width:240px" [nzCover]="coverTemplate " *ngIf="track" (click)="navigate(track)">
+      <nz-card-meta nzTitle="{{ track.name | uppercase}}" nzDescription="{{ track.type | uppercase}}"></nz-card-meta>
+      <nz-card-meta *ngFor="let atrtist of track.artists">
+    </nz-card-meta>
+    </nz-card>
+    <ng-template #coverTemplate>
+      <img  [src]="track.album.images | errorImage" />
+    </ng-template>
+  </div>
+
+</ng-container>
+

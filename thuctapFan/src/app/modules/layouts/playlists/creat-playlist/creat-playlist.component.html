@@ -1,0 +1,26 @@
+
+      <div class="search-section__input-container">
+
+          <input class="search-section__input" type="text" id="inputSearch" placeholder="Search artist or track" (keyup)="search(searchTerm.value)" (keydown.backspace)="search(searchTerm.value)" #searchTerm>
+
+
+
+    <div  *ngIf="(result$ |async) as result">
+<!-- <div *ngIf="(result$ |async) as result"> -->
+    <nz-table #middleTable [nzData]="result.items">
+  <tr *ngFor='let track of middleTable.data'>
+  <td>  <img [src]= 'track.album.images[0].url'></td>
+
+  <td>
+    {{track.name}}
+  </td>
+
+   <td> <button nz-button nzType="primary"  nzShape="round"(click)="addTrack(track.uri, track.id)">Thêm</button> </td>
+
+
+
+</nz-table>
+</div>
+
+
+

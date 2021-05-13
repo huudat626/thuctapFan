@@ -9,11 +9,11 @@ import { LoginComponent } from './login.component';
 
 
 
-@NgModule({
-  imports:      [
-    CommonModule
-  ],
-  declarations: [  LoginComponent ],
+// @NgModule({
+//   imports:      [
+//     CommonModule
+//   ],
+//   declarations: [  LoginComponent ],
 
-})
-export class LoginModule {}
+// })
+// export class LoginModule {}

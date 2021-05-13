@@ -14,6 +14,7 @@ import { NewReleaseItemComponent } from './new-release-item/new-release-item.com
 import { NewReleasesService } from './services/new-releases.service';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 import { UseTopComponent } from './use-top/use-top.component';
+import { NavBarComponent } from 'src/app/shared/nav-bar/nav-bar.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { UseTopComponent } from './use-top/use-top.component';
     HomeComponent,
     NewReleaseItemComponent,
     UseTopComponent,
+
   ],
   imports: [
     CommonModule,

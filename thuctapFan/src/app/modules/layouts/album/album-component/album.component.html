@@ -1,23 +1,30 @@
-<div class="album-tracks animated fadeIn" *ngIf="album != null">
-    <div class="album-tracks__btn-container">
-        <button class="back-btn" role="button" type="button" (click)="goBack()">
-          Back
-        </button>
-    </div>
-    <div class="album-tracks__header">
-        <div class="album-tracks__img-container">
-            <img class="album-tracks__img" [src]="album.images | errorImage" [alt]="album.name">
-        </div>
-        <div class="album-tracks__info-container">
-            <div class="album-tracks__type-container" *ngIf="album.type">
-                <p class="album-tracks__type">{{ album.type | uppercase}}</p>
-            </div>
-            <div class="album-tracks__name-container" *ngIf="album.name">
-                <h1 class="album-tracks__name">{{ album.name }}</h1>
-            </div>
-        </div>
-    </div>
-    <div class="album-tracks__list-container">
 
-  </div> <iframe [src]="album.uri | uri" width="600" height="600" frameborsrcder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<div class="album-tracks" *ngIf="album != null">
+  <!-- <i nz-icon nzType="left-circle" style="font-size: 30px; position: relative; top: -90px;" nzTheme="outline" (click)='goBack()'></i> -->
+  <!-- <i nz-icon nzType="arrow-left" style="font-size: 20px; position: relative; top: -90px;" nzTheme="outline"
+    (click)='goBack()'></i> -->
+  <!-- <button class="back-btn" role="button" type="button" (click)="goBack()">Back
+
+  </button> -->
+
+  <img class="album-tracks__img" [src]="album.images | errorImage" [alt]="album.name">
+
+  <div class="fontname">
+    <div *ngIf="album">
+      {{ album.album_type | uppercase}}
+      <h1 class="album-tracks__name">{{ album.name }}</h1>
+      <ng-container *ngFor="let item of album.artists">
+        <h2>{{item.name}}</h2>
+      </ng-container>
+      <h3>{{album.release_date| date:"mediumDate"}},{{album.total_tracks}}Songs,
+        <i style="font-size: 20px;" nz-icon nzType="clock-circle" nzTheme="outline"></i>
+        {{album.tracks.items[0].duration_ms
+        |timeCustomPipe}}</h3>
+    </div>
+  </div>
+  <app-album-track [album]="album"></app-album-track>
+
 </div>
+
+
+

@@ -22,9 +22,8 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     console.log(next.fragment);
 
     if(response){
-      console.log(response);
-
       this.tokenSvc.setAuthToken(response);
+      this.authService.authorized();
       this.route.navigate(['/home']);
     }
     return !!response;

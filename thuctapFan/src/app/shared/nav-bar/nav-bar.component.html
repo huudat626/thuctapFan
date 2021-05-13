@@ -1,91 +1,89 @@
-<!-- <aside class="aside">
-  <div class="aside__title">
+<nz-layout>
+  <nz-sider *ngIf="dataPlaylist">
+    <ul nz-menu nzTheme="dark" nzMode="inline">
+      <li nz-menu-item routerLink="home" style="font-size: 20px;">
+        <!-- <i nz-icon nzType="youtube" style="font-size: 16px;" nzTheme="outline"></i> -->
+        <span class="item">Spotify</span>
+      </li>
+      <li nz-menu-item routerLink="home">
+        <i nz-icon nzType="home" nzTheme="outline"></i>
+        <span>Trang chủ</span>
+      </li>
+      <li nz-menu-item routerLink='search'>
+        <i nz-icon nzType="search" nzTheme="outline"></i>
+        <span>Tìm kiếm</span>
+      </li>
+      <li nz-menu-item routerLink='playlists'>
+        <i nz-icon nzType="bar-chart"></i>
+        <span>Thư viện</span>
+      </li>
+      <li nz-menu-item routerLink='creat_playlist'>
+        <i nz-icon nzType="file-add" nzTheme="outline"></i>
+        <span>Tạo playlist</span>
+      </li>
+      <hr />
+      <ng-container>
 
-    Spotify
-  </div>
-  <div>
-    <ul>
-      <li class="side-bar__list-item" routerLinkActive="active">
-        <a class="side-bar__anchor" routerLink="home">Home</a>
-      </li>
-      <li class="side-bar__list-item" routerLinkActive="active">
-        <a class="side-bar__anchor" routerLink="search">Search</a>
-      </li>
+        <div class="display" *ngFor="let item of dataPlaylist.items ; index as i">
+          <input nz-input class="inputplaylist" *ngIf="item.isEditting; else contextName" [(ngModel)]="nameModel"
+            (blur)="renamePlayList(item.id,i)" #myInput />
+          <ng-template #contextName>
+            <li nz-menu-item (contextmenu)="contextMenu($event,menu)" [routerLink]="['/playlists/',item.id]">
+              {{item.name}}</li>
+          </ng-template>
+          <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu *ngIf="item.owner.id == userId">
+              <li nz-menu-item (click)="showInput(item.id, i)">Rename</li>
+            </ul>
+          </nz-dropdown-menu>
+        </div>
+      </ng-container>
     </ul>
-  </div> -->
-
+  </nz-sider>
   <nz-layout>
-    <nz-sider>
-        <ul nz-menu nzTheme="dark" nzMode="inline">
-            <li nz-menu-item>
-                <i nz-icon nzType="youtube" nzTheme="outline"></i>
-                <span>Spotify</span>
-            </li>
-            <li nz-menu-item routerLink="home">
-                <i nz-icon nzType="home" nzTheme="outline"></i>
-                <span>Trang chủ</span>
-            </li>
-            <li nz-menu-item routerLink='search'>
-                <i nz-icon nzType="search" nzTheme="outline"></i>
-                <span>Tìm kiếm</span>
-            </li>
-            <li nz-menu-item routerLink='playlists'>
-                <i nz-icon nzType="bar-chart" ></i>
-                <span>Thư viện</span>
-            </li>
-            <hr />
-            <li nz-menu-item>
-                <i nz-icon nzType="cloud-o"></i>
-                <span>PLAYLIST</span>
-            </li>
-            <li nz-menu-item>
-                <i nz-icon nzType="file-add" nzTheme="outline"></i>
-                <span>Tạo playlist</span>
-            </li>
-            <li nz-menu-item>
-                <i nz-icon nzType="heart" nzTheme="outline"></i>
-                <span>Bài hát đã thích</span>
-            </li>
-            <hr />
-            <!-- <li nz-menu-item>
-                <i nz-icon nzType="unordered-list" nzTheme="outline"></i>
-                <span>Playlist cau toi #1</span>
-            </li> -->
-            <div class="wrapper">
-                <ul nz-menu nzMode="inline" nzTheme="dark" [nzInlineCollapsed]="">
-                    <li nz-submenu nzTitle="Playlist cau toi #1" nzIcon="profile">
-                        <ul>
-                            <li nz-menu-item>1</li>
-                        </ul>
-
-                    </li>
-
-                </ul>
+    <nz-layout class="right-layout">
+      <nz-header>
+        <div *ngIf="(user$ | async) as user; else templateName">
+          <ng-container>
+            <div class="wrapper" style="float: right;">
+              <ul nz-menu nzMode="inline" nzTheme="dark" [nzInlineCollapsed]="">
+                <li nz-submenu [nzTitle]="user['display_name']">
+                  <ul>
+                    <li nz-menu-item (click)="logout()">logout</li>
+                  </ul>
+                </li>
+              </ul>
             </div>
-            <li nz-menu-item>
-                <i nz-icon nzType="download" nzTheme="outline"></i>
-                <span>Cai dat ung dung</span>
-            </li>
-        </ul>
-    </nz-sider>
-    <nz-layout>
-        <nz-header>Header</nz-header>
-        <nz-content>
+            <i nz-icon nzType="arrow-left" style="font-size: 20px; color: blanchedalmond; left: 20px;" nzTheme="outline"
+              (click)='goBack()'></i>
+          </ng-container>
+        </div>
+        <ng-template #templateName>
 
-            <router-outlet></router-outlet>
-        </nz-content>
-        <nz-footer>
-          <div *ngIf="ifamsrc">
-            <iframe [src]="ifamsrc|uri"
-            width="600"
-            height="600"
-             frameborsrcder="0"
-              allowtransparency="true"
-               allow="encrypted-media"></iframe>
-          </div>
+          <button (click)="login()">Login</button>
+        </ng-template>
+
+      </nz-header>
+      <nz-content>
+        <div class="inner-content">
+          <router-outlet></router-outlet>
+        </div>
+      </nz-content>
 
 
-
-        </nz-footer>
     </nz-layout>
+    <!-- <nz-content>
+
+      <router-outlet></router-outlet>
+    </nz-content> -->
+    <nz-footer>
+      <div *ngIf="ifamsrc">
+        <iframe [src]="ifamsrc|uri" width="600" height="600" frameborsrcder="0" allowtransparency="true"
+          allow="encrypted-media"></iframe>
+      </div>
+
+
+
+    </nz-footer>
   </nz-layout>
+</nz-layout>

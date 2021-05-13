@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { gt } from 'lodash';
 import { Subscription } from 'rxjs';
@@ -13,7 +13,10 @@ import { PlaylistsService } from '../service/playlists.service';
   styleUrls: ['./listsong.component.less']
 })
 export class ListsongComponent implements OnInit {
+  @Input()
+  playListitem: any;
   public playList!: APIPlaylist;
+  // public playListitem:any;
   public playListId: string = '';
   id: string ="";
   private uri!: string;
@@ -24,7 +27,8 @@ export class ListsongComponent implements OnInit {
     private playSpotify: PlaySpotifyService,
     ){}
   ngOnInit(): void {
-    this.getPlaylistsong();
+    // this.getPlaylistsong();
+   // this.getPlaylist();
 
   }
 
@@ -46,20 +50,21 @@ export class ListsongComponent implements OnInit {
   //       throw new Error(err.message);
   //     }));
   // }
-  public getPlaylistsong(): void {
-    this.id = this.activatedRoute.snapshot.params.id? this.activatedRoute.snapshot.params.id :"khong tim tháy";
-    console.log(this.id);
+  // public getPlaylistsong(): void {
+  //   this.id = this.activatedRoute.snapshot.params.id? this.activatedRoute.snapshot.params.id :"khong tim tháy";
+  //   console.log(this.id);
 
-    this.playlistsService.getplaylistTracks(this.id).subscribe((data: APIPlaylist) => {
-      this.playList = data;
-      console.log('Dataplay:', data);
-    }, (err) => {
-      console.log('Error:', err);
-      console.error(err.message);
-    }, () => {
-      console.log('Complete!');
-    });
-  }
+  //   this.playlistsService.getplaylistTracks(this.id).subscribe((data: APIPlaylist) => {
+  //     this.playList = data;
+  //     console.log('Dataplay:', data);
+  //   }, (err) => {
+  //     console.log('Error:', err);
+  //     console.error(err.message);
+  //   }, () => {
+  //     console.log('Complete!');
+  //   });
+  // }
+
 
   senUriTrack(idplaytrack: string){
     this.playSpotify.notifyPlayTrackId(idplaytrack)

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "spotify-dfc2c": {
+      "hosting": {
+        "thuctapFan": [
+          "spotify-dfc2c"
+        ]
+      }
+    }
+  }
+}

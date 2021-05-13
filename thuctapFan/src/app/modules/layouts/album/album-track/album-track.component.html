@@ -1,0 +1,28 @@
+<nz-table style="background-color:transparent;" *ngIf="album" #middleTable [nzData]="album.tracks.items">
+  <thead>
+    <tr>
+      <th></th>
+      <th>#</th>
+      <th>Tiêu đề</th>
+      <th> <i style="font-size: 20px;" nz-icon nzType="clock-circle" nzTheme="outline"></i> </th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let item of middleTable.data; index as i" (click)="senUriTrack(item.uri)">
+      <td>{{i+1}}</td>
+      <td><i nz-icon nzType="play-circle" nzTheme="outline" style="font-size: 20px;"> </i></td>
+
+      <td >{{ item.name }}</td>
+
+      <td>{{item.duration_ms |timeCustomPipe}}</td>
+
+
+      <!-- <tr>
+      <td></td>
+
+
+
+      <td></td>
+    </tr> -->
+  </tbody>
+</nz-table>

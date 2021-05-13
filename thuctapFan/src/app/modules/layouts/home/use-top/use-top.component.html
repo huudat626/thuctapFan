@@ -1,16 +1,32 @@
 
-<ng-container >
-  <div>
-    <nz-card  nzHoverable style="width:240px" [nzCover]="coverTemplate " *ngIf="useTop" >
-      <nz-card-meta nzTitle="{{ useTop.name | uppercase}}" nzDescription="{{ useTop.type | uppercase}}"></nz-card-meta>
-      <nz-card-meta *ngFor="let track of useTop.album">
-    </nz-card-meta>
+<ng-container class="content">
+
+  <div class="item">
+    <!-- <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate " *ngIf="useTop" (click)="senUriTrack(useTop.track.uri)"> -->
+      <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate " *ngIf="useTop" (click)="navigate(useTop)">
+      <nz-card-meta nzTitle="{{ useTop.track.name| uppercase}}" nzDescription="{{ useTop.track.artists[0].name | uppercase}}"></nz-card-meta>
+      <nz-card-meta *ngFor="let item of useTop.artists" nzDescription="{{ item.name}}"></nz-card-meta>
     </nz-card>
     <ng-template #coverTemplate>
-      <img  [src]="useTop.items[0].track.album.images | errorImage" />
+      <img [src]="useTop.track.album.images[0].url" />
     </ng-template>
   </div>
 
 </ng-container>
+<!-- <ng-container  *ngIf="useTop">
+  <div>
+    aaaaaaaaaaa
+  </div>
+</ng-container> -->
 
 
+<!-- <div *ngIf="useTop">
+  <div *ngFor="let i of useTop.items.track">
+
+  {{ i.track.name | uppercase}}"
+  </div>
+
+</div> -->
+<!-- <div *ngIf="useTop">
+  {{useTop.track.name}}
+</div> -->
